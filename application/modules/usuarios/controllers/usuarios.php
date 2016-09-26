@@ -67,6 +67,10 @@ class Usuarios extends MX_Controller {
             default:
                 $data['tab1'] = "active";
         }
+		
+		$infoProgreso = $this->progresoFormulario();//calcular progreso diligenciamiento de los formularios
+		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
+		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 
         $data["view"] = "form_usuario";
         $this->load->view("layout", $data);
@@ -147,6 +151,11 @@ class Usuarios extends MX_Controller {
         $data['user'] = $this->usuario_model->get_user_by_id($idUser);//cargar datos del usuario
         
         $data['contacto'] = $this->usuario_model->get_contacto();
+		
+		$infoProgreso = $this->progresoFormulario();//calcular progreso diligenciamiento de los formularios
+		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
+		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
+		
         $data["view"] = "form_contacto";
         $this->load->view("layout", $data);
     }
@@ -190,6 +199,10 @@ class Usuarios extends MX_Controller {
         if ($id != 'x') {
             $data['infoDependiente'] = $this->usuario_model->get_dependientes($id);
         }
+		
+		$infoProgreso = $this->progresoFormulario();//calcular progreso diligenciamiento de los formularios
+		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
+		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
         
         $data["view"] = "form_dependientes";
         $this->load->view("layout", $data);
@@ -226,6 +239,10 @@ class Usuarios extends MX_Controller {
         if ($id != 'x') {
             $data['infoActividades'] = $this->usuario_model->get_info_actividad($id);
         }
+		
+		$infoProgreso = $this->progresoFormulario();//calcular progreso diligenciamiento de los formularios
+		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
+		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 
         $data["view"] = "form_actividades";
         $this->load->view("layout", $data);
@@ -270,6 +287,10 @@ class Usuarios extends MX_Controller {
         if ($id != 'x') {
             $data['infoMascota'] = $this->usuario_model->get_info_mascota($id);
         }
+		
+		$infoProgreso = $this->progresoFormulario();//calcular progreso diligenciamiento de los formularios
+		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
+		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
         
         $data["view"] = "form_mascotas";
         $this->load->view("layout", $data);
@@ -306,6 +327,10 @@ class Usuarios extends MX_Controller {
             $data['infoIdioma'] = $this->usuario_model->get_info_idioma($id);
         }
 
+		$infoProgreso = $this->progresoFormulario();//calcular progreso diligenciamiento de los formularios
+		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
+		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
+		
         $data["view"] = "form_idiomas";
         $this->load->view("layout", $data);
     }
@@ -340,6 +365,7 @@ class Usuarios extends MX_Controller {
 
         if (!empty($data['academica'])) {//si hay datos registrados no debe traer el valor ninguno
             $arrParam['filtro'] = 99;
+
             // Se bloquea el campo del año de graduación
             foreach ($data['academica'] as $llave => $valor) {
                 $data['academica'][$llave]['anoGrad'] = 'SI';
@@ -359,6 +385,10 @@ class Usuarios extends MX_Controller {
         if ($id != 'x') {
             $data['infoAcademica'] = $this->usuario_model->get_info_academica($id);
         }
+		
+		$infoProgreso = $this->progresoFormulario();//calcular progreso diligenciamiento de los formularios
+		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
+		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 
         $data["view"] = "form_academica";
         $this->load->view("layout", $data);
@@ -550,6 +580,71 @@ class Usuarios extends MX_Controller {
         if ($data['idioma'] = $this->usuario_model->get_info_idioma()) {
             $this->load->view("lista_idioma", $data);
         }
+    }
+	
+    /**
+     * Consulta porcentaje de formularios llenos
+     * @author OACUBILLOSA
+     * @since  26/09/2016
+     */
+    public function progresoFormulario() {
+
+		$progreso = 6;//porcentaje para la barra de progreso; usuario registrado con su correo y numero de cedula
+
+		$idUser = $this->session->userdata("id");
+		$user = $this->usuario_model->get_user_by_id($idUser);
+		if ($user["IMAGEN"] != '') {
+			$progreso = $progreso + 2.3;//porcentaje para la barra de progreso; usuario con foto
+		}
+		
+		$infoEspecifica = $this->usuario_model->get_info_especifica_by_id($idUser);
+        if (!empty($infoEspecifica)) {
+			$progreso = $progreso + 6;//porcentaje para la barra de progreso; usuario con informacion especifica
+		}		
+		
+		$academica = $this->usuario_model->get_info_academica();
+        if (!empty($academica)) {
+			$progreso = $progreso + 14.3;//porcentaje para la barra de progreso; usuario con informacion academica
+		}
+		
+		$idioma = $this->usuario_model->get_info_idioma();
+        if (!empty($idioma)) {
+			$progreso = $progreso + 14.3;//porcentaje para la barra de progreso; usuario con idiomas
+		}
+		
+		$dependientes = $this->usuario_model->get_dependientes();
+        if (!empty($dependientes)) {
+			$progreso = $progreso + 14.3;//porcentaje para la barra de progreso; usuario con dependientes
+		}
+		
+		$actividad = $this->usuario_model->get_info_actividad();
+        if (!empty($actividad)) {
+			$progreso = $progreso + 14.3;//porcentaje para la barra de progreso; usuario con actividades
+		}
+		
+		$mascota = $this->usuario_model->get_info_mascota();
+        if (!empty($mascota)) {
+			$progreso = $progreso + 14.3;//porcentaje para la barra de progreso; usuario con mascotas
+		}
+		
+		$contacto = $this->usuario_model->get_contacto();
+        if (!empty($contacto)) {
+			$progreso = $progreso + 14.3;//porcentaje para la barra de progreso; usuario con contacto de emergancia
+		}		
+		
+		$colorProgreso = "progress-bar-danger";//color de la barra
+		if($progreso > 45 && $progreso < 71 ){
+			$colorProgreso = "progress-bar-warning";//color de la barra
+		}elseif($progreso > 70){
+			$colorProgreso = "progress-bar-success";//color de la barra
+		}
+
+		$arreglo = array(
+			"progreso" => $progreso,
+			"colorProgreso" => $colorProgreso
+		);
+
+        return $arreglo;
     }
 
     /**

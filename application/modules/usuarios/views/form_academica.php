@@ -5,6 +5,19 @@ if ($user["POLITICA"] != 1) {
 <?php } else { ?>
     <script type="text/javascript" src="<?php echo base_url("js/usuarios/academica.js"); ?>"></script>
     <div class="container">
+
+<!-------- Barra de progreso -------->
+<div class="row" align="center">
+	<div style="width:50%;" align="center">
+			<div class="progress progress-striped active">
+				<div class="progress-bar <?php echo $colorProgreso; ?>" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $progreso; ?>%">
+					<span > <?php echo round($progreso); ?>% completado</span>
+				</div>
+			</div>
+	</div>
+</div>		
+<!-------- Barra de progreso -------->
+
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h4 class="list-group-item-heading">

@@ -6,6 +6,20 @@
         $mostrarTabs = 'style="display: none;"';
     } ?>
     <div id="content">
+
+<!-------- Barra de progreso -------->
+<div class="row" align="center">
+	<div style="width:50%;" align="center">
+			<div class="progress progress-striped active">
+				<div class="progress-bar <?php echo $colorProgreso; ?>" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $progreso; ?>%">
+					<span > <?php echo round($progreso); ?>% completado</span>
+				</div>
+			</div>
+	</div>
+</div>		
+<!-------- Barra de progreso -------->
+
+
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs" <?php echo $mostrarTabs; ?> >
             <li class="<?php echo $tab1; ?>"><a href="#red" data-toggle="tab">Informaci&oacute;n B&aacute;sica</a></li>
             <li class="<?php echo $tab2; ?>"><a href="#green" data-toggle="tab">Informaci&oacute;n Personal</a></li>
