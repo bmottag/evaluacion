@@ -1,0 +1,12 @@
+/* Modificacion a estilos bootstrap*/
+
+
+/**
+* Modifica estilo de input readonly
+* @author hhchavezv
+* @since  2015jul23
+*/
+ .form-control[readonly] {
+ background-color:#FFFFFF;/*#F7F8FA;*/
+ cursor:text;
+ }
