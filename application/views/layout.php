@@ -37,6 +37,13 @@
         ?>
         <!-- Inicia Contenido -->
         <?php
+        if (isset($viewSubmenu) && ($viewSubmenu != '')) {
+            $this->load->view("submenu");
+        }
+        ?>
+        <!-- Finaliza Contenido -->
+        <!-- Inicia Contenido -->
+        <?php
         if (isset($view) && ($view != '')) {
             $this->load->view($view);
         }

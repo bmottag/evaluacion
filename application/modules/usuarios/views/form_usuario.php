@@ -5,19 +5,6 @@
     if (is_null($user["POLITICA"]) || $user["POLITICA"] == '' || $user["POLITICA"] != 1) {
         $mostrarTabs = 'style="display: none;"';
     } ?>
-    
-
-<!-------- Barra de progreso -------->
-<div class="row" align="center">
-	<div style="width:50%;" align="center">
-            <div class="progress progress-striped active">
-                    <div class="progress-bar <?php echo $colorProgreso; ?>" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $progreso; ?>%">
-                            <span > <?php echo round($progreso); ?>% completado</span>
-                    </div>
-            </div>
-	</div>
-</div>		
-<!-------- Barra de progreso -------->
 
     <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs" <?php echo $mostrarTabs; ?> >

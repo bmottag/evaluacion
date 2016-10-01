@@ -72,7 +72,8 @@ class Usuarios extends MX_Controller {
 		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
 		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 
-        $data["view"] = "form_usuario";
+        $data["viewSubmenu"] = true;//para activar el submenu
+		$data["view"] = "form_usuario";
         $this->load->view("layout", $data);
     }
 
@@ -156,7 +157,8 @@ class Usuarios extends MX_Controller {
 		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
 		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 		
-        $data["view"] = "form_contacto";
+        $data["viewSubmenu"] = true;//para activar el submenu
+		$data["view"] = "form_contacto";
         $this->load->view("layout", $data);
     }
 
@@ -204,7 +206,8 @@ class Usuarios extends MX_Controller {
 		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
 		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
         
-        $data["view"] = "form_dependientes";
+        $data["viewSubmenu"] = true;//para activar el submenu
+		$data["view"] = "form_dependientes";
         $this->load->view("layout", $data);
     }
 
@@ -244,7 +247,8 @@ class Usuarios extends MX_Controller {
 		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
 		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 
-        $data["view"] = "form_actividades";
+        $data["viewSubmenu"] = true;//para activar el submenu
+		$data["view"] = "form_actividades";
         $this->load->view("layout", $data);
     }
 
@@ -292,7 +296,8 @@ class Usuarios extends MX_Controller {
 		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
 		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
         
-        $data["view"] = "form_mascotas";
+        $data["viewSubmenu"] = true;//para activar el submenu
+		$data["view"] = "form_mascotas";
         $this->load->view("layout", $data);
     }
 
@@ -331,7 +336,8 @@ class Usuarios extends MX_Controller {
 		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
 		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 		
-        $data["view"] = "form_idiomas";
+        $data["viewSubmenu"] = true;//para activar el submenu
+		$data["view"] = "form_idiomas";
         $this->load->view("layout", $data);
     }
 
@@ -390,7 +396,8 @@ class Usuarios extends MX_Controller {
 		$data['progreso'] = $infoProgreso['progreso'];//porcentaje para la barra de progreso
 		$data['colorProgreso'] = $infoProgreso['colorProgreso'];//porcentaje para la barra de progreso
 
-        $data["view"] = "form_academica";
+        $data["viewSubmenu"] = true;//para activar el submenu
+		$data["view"] = "form_academica";
         $this->load->view("layout", $data);
     }
 
