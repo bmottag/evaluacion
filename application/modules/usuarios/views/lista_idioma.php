@@ -10,9 +10,9 @@
 <?php
     foreach ($idioma as $lista):
                     echo "<tr>";
-                    echo "<td class='text-right'>" . $lista['IDIOMA'] . "</td>";
+                    echo "<td >" . $lista['IDIOMA'] . "</td>";
                     echo "<td class='text-right'>" . $lista['CUAL'] . "</td>";
-                    echo "<td class='text-right'>";
+                    echo "<td class='text-center'>";
                         switch ($lista['HABLA']) {
                                 case 1:
                                         echo "Básico";
@@ -32,7 +32,7 @@
                         }
                     echo "</td>";
 
-                    echo "<td class='text-right'>";
+                    echo "<td class='text-center'>";
                         switch ($lista['LEE']) {
                                 case 1:
                                         echo "Básico";
@@ -52,7 +52,7 @@
                         }
                     echo "</td>";
                     
-                    echo "<td class='text-right'>";
+                    echo "<td class='text-center'>";
                         switch ($lista['ESCRIBE']) {
                                 case 1:
                                         echo "Básico";

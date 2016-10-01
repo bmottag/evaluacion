@@ -9,10 +9,10 @@
     <?php
     foreach ($actividad as $lista):
         echo "<tr>";
-        echo "<td class='text-right'>" . $lista['TIPO_LUDICA'] . "</td>";
-        echo "<td class='text-right'>" . $lista['LUDICA'] . "</td>";
-        echo "<td class='text-right'>" . $lista['CUAL'] . "</td>";
-        echo "<td class='text-right'>" . $lista['HORAS'] . "</td>";
+        echo "<td >" . $lista['TIPO_LUDICA'] . "</td>";
+        echo "<td >" . $lista['LUDICA'] . "</td>";
+        echo "<td >" . $lista['CUAL'] . "</td>";
+        echo "<td class='text-center'>" . $lista['HORAS'] . "</td>";
         echo "<td class='text-center'>";
         echo "<a class='btn btn-danger' href='" . base_url() . "usuarios/eliminarActividad/" . $lista['ID_ACTIVIDAD'] . "'>Eliminar <span class='glyphicon glyphicon-trash' aria-hidden='true'></a>";
         echo "&nbsp;<a class='btn btn-success' href='" . base_url() . "usuarios/actividades/" . $lista['ID_ACTIVIDAD'] . "'>Editar <span class='glyphicon glyphicon-pencil' aria-hidden='true'></a>";
