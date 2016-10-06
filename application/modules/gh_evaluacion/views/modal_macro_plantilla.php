@@ -55,6 +55,10 @@
 			</thead>
 			<tbody>
 			<?php
+				$habilitar = "";//si solo es un macriproceso solo no se puede eliminar
+				if(count($plantilla) == 1){
+					$habilitar = "disabled";
+				}
 				foreach ($plantilla as $datos):
 					echo "<tr>";
 						echo "<td class='text-center'><small>" . $datos->AREA . "</small></td>";
@@ -63,7 +67,7 @@
 						echo "<td class='text-center'><small>";
 			?>
 					<center>
-					<a class='btn btn-danger' href='<?php echo base_url('gh_evaluacion/admin_evaluacion/eliminarMacroPlantilla/' . $datos->ID_PLANTILLA) ?>' id="btn-delete">
+					<a class='btn btn-danger' href='<?php echo base_url('gh_evaluacion/admin_evaluacion/eliminarMacroPlantilla/' . $datos->ID_PLANTILLA) ?>' id="btn-delete" <?php echo $habilitar; ?>>
 							<span class="glyphicon glyphicon-remove" aria-hidden="true"> </span>  Eliminar
 					</a>
 					</center>
