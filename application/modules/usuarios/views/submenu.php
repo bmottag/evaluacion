@@ -7,7 +7,7 @@
 		<a href="<?php echo base_url("/usuarios/actividades"); ?>" class="btn btn-info" role="button">Actividades</a>
 		<a href="<?php echo base_url("/usuarios/mascotas"); ?>" class="btn btn-info" role="button">Mascotas</a>
 		<a href="<?php echo base_url("/usuarios/contacto"); ?>" class="btn btn-info" role="button">Contacto para emergencia</a>
-	</p>
+        </p><br>
 	<!-------- Barra de progreso -------->
 	<div class="row" align="center">
 		<div style="width:50%;" align="center">
