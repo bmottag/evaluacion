@@ -757,7 +757,7 @@ class GH_Evaluacion extends MX_Controller {
         $data['msj'].= " para la Dependencia/Territorial <strong>" . $data['acuerdo'][0]->DESCRIPCION . "</strong>.";
 
         $this->email->from("aplicaciones@dane.gov.co", "Módulo de Evaluación Gerentes Públicos - DANE");
-        $this->email->to('aocubillosa@dane.gov.co'); //to($email);
+        $this->email->to($email); //to('aocubillosa@dane.gov.co');
         $this->email->subject("Seguimiento completo");
         $html = $this->load->view("email", $data, true);
 
@@ -787,7 +787,7 @@ class GH_Evaluacion extends MX_Controller {
 
 
         $this->email->from("aplicaciones@dane.gov.co", "Módulo de Evaluación Gerentes Públicos - DANE");
-        $this->email->to('aocubillosa@dane.gov.co'); //to($email);
+        $this->email->to($email); //to('aocubillosa@dane.gov.co');
         $this->email->subject("Seguimiento completo");
         $html = $this->load->view("email", $data, true);
 
